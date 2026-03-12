@@ -109,3 +109,5 @@ find "$TARGET_DIR" -type f \( -name "*.bin" -o -name "*.manifest" -o -name "*efi
 if [[ -d action_build ]]; then
     make clean
 fi
+# 强制将根分区大小修改为 10240MB (10G)
+sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=10240/g' .config
